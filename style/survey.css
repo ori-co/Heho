@@ -33,6 +33,12 @@ body {
     font-size: 22px;
 }
 
+#player audio {
+    height: 30px;
+    width: 600px;
+    top: 25px;
+}
+
 #rightbar {
     padding-top: 100px;
     padding-left: 20px;
