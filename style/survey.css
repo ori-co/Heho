@@ -34,9 +34,12 @@ body {
 }
 
 #player audio {
+    position: absolute;
     height: 30px;
     width: 600px;
     top: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 #rightbar {
