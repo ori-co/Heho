@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #DADADA;
+    background-color: #CFD8DC;
 }
 
 #main {
@@ -30,7 +30,7 @@ body {
     height: 80px;
     padding-left: 60px;
     padding-right: 60px;
-    background-color: red;
+    background-color: #607D8B;
     color: white;
     line-height: 80px;
     /*font-weight: bold;*/
@@ -57,7 +57,8 @@ body {
     width: 100px;
     float: left;
     right: 0;
-    background-color: orange;
+    background-color: #455A64;
     color: white;
     font-size: 16px;
+    box-shadow: -3px 0px 8px 5px  rgba(0,0,0,0.4);
 }
