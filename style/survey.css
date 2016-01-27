@@ -64,7 +64,7 @@ body {
     text-align: center;
 }
 
-.icon img {
+.icon {
     display: inline-block;
     position: relative;
     width: 60px;
