@@ -73,17 +73,23 @@ body {
     border-width: 6px;
     border-radius: 8px;
     margin-bottom: 10px;
-}
-
-.icon_active {
-    border-color: #CDDC39;
-}
-
-.icon_enabled {
     border-color: #CFD8DC;
 }
 
-.icon_disabled {
+.icon img {
+    border-radius: 2px;
+}
+
+.icon.icon_small {
+    width: 30px;
+    height: 30px;
+}
+
+.icon.icon_active {
+    border-color: #CDDC39;
+}
+
+.icon.icon_disabled {
     border-color: #727272;
 }
 
@@ -92,7 +98,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    background:rgba(0,0,0,0.5);
 }
