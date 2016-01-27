@@ -65,9 +65,14 @@ body {
 }
 
 .icon {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
     border-style: solid;
-    border-width: 5px;
-    border-radius: 5px;
+    border-width: 6px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .icon_active {
@@ -80,4 +85,14 @@ body {
 
 .icon_disabled {
     border-color: #727272;
+}
+
+.icon_disabled:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.6);
 }
