@@ -17,6 +17,20 @@
             <div class="instruction">
             <b>Instructions</b> : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus felis, euismod quis facilisis et, suscipit vitae enim. Praesent sed ipsum orci. Nullam dolor metus, ullamcorper varius sem eget, hendrerit vulputate tortor.  
             </div>
+            <div id="main">
+                <div ng-repeat="x in param">
+                    <h3> {{x.nom}} </h3>
+                    <p> {{x.description}} </p>
+                    <span class="legend">{{x.valMin}}</span>
+                    <div class="slider" ng-click="note($index,$event)">-
+                        <span class="flag" ng-repeat="y in x.notes">
+                        {{y}}
+                        </span>
+                    </div>
+                    <span class="legend">{{x.valMax}}</span>
+                </div>
+                <div class="button" ng-click="next()"> Suivant </div>
+            </div>
         </div>
 		<div id="leftbar">
 			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
@@ -29,21 +43,6 @@
 					<source src="{{current.url}}" type="audio/wav">
 				</audio>
 			</div>
-		</div>
-
-		<div id="main">
-			<div ng-repeat="x in param">
-				<h3> {{x.nom}} </h3>
-				<p> {{x.description}} </p>
-				<span class="legend">{{x.valMin}}</span>
-				<div class="slider" ng-click="note($index,$event)">-
-					<span class="flag" ng-repeat="y in x.notes">
-					{{y}}
-					</span>
-				</div>
-				<span class="legend">{{x.valMax}}</span>
-			</div>
-			<div class="button" ng-click="next()"> Suivant </div>
 		</div>
 	</div>
 	</body>
