@@ -35,4 +35,9 @@ app.controller('myCtrl', function($scope) {
         $scope.param[$index].notes[idCurr] = $event.offsetX;
         //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);
     }
+
+    $scope.testfunc = function(scope, a) {
+        alert(a);
+    }
 });
+

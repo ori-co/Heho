@@ -40,7 +40,7 @@
 			<div id="player">
 				<div class="icon icon_active"><img src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon"/></div>
 				<audio controls>					
-					<source src="{{current.url}}" type="audio/wav">
+					<source src="{{current.url}}" type="audio/wav" ng-init="testfunc(this, 'truc')">
 				</audio>
 			</div>
 		</div>
