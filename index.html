@@ -19,7 +19,7 @@
             </div>
         </div>
 		<div id="leftbar">
-			<div class="icon" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
+			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
 		</div>
 
 		<div id="topbar">
