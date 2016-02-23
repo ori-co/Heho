@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style/survey.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-		<script src="script/survey-app.js"></script>
 		<script src="script/survey-ctrl.js"></script>
     </head>
     <body>
@@ -36,10 +35,13 @@
 				<h3> {{x.nom}} </h3>
 				<p> {{x.description}} </p>
 				<span class="legend">{{x.valMin}}</span>
-				<div class="slider" ng-click="note($index,$event)">-
-					<span class="flag" ng-repeat="y in x.notes">
-					{{y}}
-					</span>
+				<div class="slider" ng-click="note($index,$event)">
+					<div class="flag" ng-repeat="y in x.notes" style="left:{{y}}px;">
+                    <div class="icon icon_small {{sample[$index].etat}}">
+                        <img src="http://www.gravatar.com/avatar/{{sample[$index].identicon}}?s=30&amp;d=identicon"/>
+                    </div>
+                    <div class="pin {{sample[$index].etat}}"></div>
+                    </div>
 				</div>
 				<span class="legend">{{x.valMax}}</span>
 			</div>
