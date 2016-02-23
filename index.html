@@ -32,10 +32,16 @@
 		</div>
 
 		<div id="main">
-			<div class="slider" ng-repeat="x in param">
+			<div ng-repeat="x in param">
 				<h3> {{x.nom}} </h3>
 				<p> {{x.description}} </p>
-				<p> {{x.valMin}} ----------------------------------------------------------------------- {{x.valMax}} </p>
+				<span class="legend">{{x.valMin}}</span>
+				<div class="slider" ng-click="note($index,$event)">-
+					<span class="flag" ng-repeat="y in x.notes">
+					{{y}}
+					</span>
+				</div>
+				<span class="legend">{{x.valMax}}</span>
 			</div>
 			<div class="button" ng-click="next()"> Suivant </div>
 		</div>

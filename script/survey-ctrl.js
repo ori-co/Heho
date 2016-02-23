@@ -24,9 +24,15 @@ app.controller('myCtrl', function($scope) {
         $scope.current.etat = 'icon_active';
     }
     
-    $scope.next=function() {
+    $scope.next = function() {
         var idCurr = $scope.current.id;
         $scope.sample[idCurr] = $scope.current;
         $scope.selection(idCurr + 1);
+    }
+    
+    $scope.note=function($index,$event){
+        var idCurr = $scope.current.id;
+        $scope.param[$index].notes[idCurr]=$event.offsetX;
+        //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);
     }
 });
