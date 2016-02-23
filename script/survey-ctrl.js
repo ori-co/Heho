@@ -33,6 +33,13 @@ app.controller('myCtrl', function($scope) {
     $scope.note = function($index, $event){
         var idCurr = $scope.current.id;
         $scope.param[$index].notes[idCurr] = $event.offsetX;
+        // A diviser par la taille du slider
+        
         //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);
     }
+
+    $scope.testfunc = function(scope, a) {
+        alert(a);
+    }
 });
+

@@ -16,21 +16,7 @@
             <div class="instruction">
             <b>Instructions</b> : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus felis, euismod quis facilisis et, suscipit vitae enim. Praesent sed ipsum orci. Nullam dolor metus, ullamcorper varius sem eget, hendrerit vulputate tortor.  
             </div>
-        </div>
-		<div id="leftbar">
-			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
-		</div>
-
-		<div id="topbar">
-			<div id="player">
-				<div class="icon icon_active"><img src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon"/></div>
-				<audio controls>					
-					<source src="{{current.url}}" type="audio/wav">
-				</audio>
-			</div>
-		</div>
-
-		<div id="main">
+            <div id="main">
 			<div ng-repeat="x in param">
 				<h3> {{x.nom}} </h3>
 				<p> {{x.description}} </p>
@@ -46,6 +32,19 @@
 				<span class="legend">{{x.valMax}}</span>
 			</div>
 			<div class="button" ng-click="next()"> Suivant </div>
+		</div>
+        </div>
+		<div id="leftbar">
+			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
+		</div>
+
+		<div id="topbar">
+			<div id="player">
+				<div class="icon icon_active"><img src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon"/></div>
+				<audio controls>					
+					<source src="{{current.url}}" type="audio/wav" ng-init="testfunc(this, 'truc')">
+				</audio>
+			</div>
 		</div>
 	</div>
 	</body>
