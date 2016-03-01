@@ -11,7 +11,7 @@
     </head>
     <body>
 	<!--<div ng-app="myApp" ng-controller="myCtrl" ng-init="test='toto'">-->
-	<div ng-app="myApp" ng-controller="myCtrl">
+	<div ng-app="myApp" ng-controller="myCtrl" ng-init="init()">
         <div id="instructionbar">
             <div class="instruction">
             <b>Instructions</b> : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus felis, euismod quis facilisis et, suscipit vitae enim. Praesent sed ipsum orci. Nullam dolor metus, ullamcorper varius sem eget, hendrerit vulputate tortor.  
@@ -31,7 +31,7 @@
 				</div>
 				<span class="legend">{{x.valMax}}</span>
 			</div>
-			<div class="button" ng-click="next()"> Suivant </div>
+			<div class="button" ng-click="next()" id="buttonNext"> Suivant </div>
 		</div>
         </div>
 		<div id="leftbar">

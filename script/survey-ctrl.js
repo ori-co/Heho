@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope,$timeout) {
     $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_active'},
                      {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -19,6 +19,19 @@ app.controller('myCtrl', function($scope) {
     $scope.current = $scope.sample[0];
     
     $scope.player = document.getElementById("audioplayer");
+    
+    $scope.button=document.getElementById("buttonNext");   
+    
+    $scope.init = function (){
+        $scope.selection(0);
+        $scope.delay();
+    }
+    
+    $scope.delay=function () {
+        $timeout( function(){ 
+            $scope.button.className="button"   
+        }, 3000);
+    }
 
     $scope.selection = function (id) {
         $scope.current.etat = '';
@@ -28,12 +41,15 @@ app.controller('myCtrl', function($scope) {
         $scope.player.src=$scope.sample[id].url;
         $scope.player.load();
         $scope.player.play();
+        $scope.player.volume=0.5;
     }
     
     $scope.next = function() {
         var idCurr = $scope.current.id;
         $scope.sample[idCurr] = $scope.current;
         $scope.selection(idCurr + 1);
+        $scope.button.className="button_disabled";
+        $scope.delay();
     }
     
     $scope.note = function($index, $event){

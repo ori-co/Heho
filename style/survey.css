@@ -34,6 +34,18 @@ body {
     color:#CDDC39;
 }
 
+.button_disabled {
+    /*box-shadow: 2px 2px 3px rgba(0,0,0,0.4);*/
+    background-color: #565656;
+    color:#FFFFFF;
+    padding:10px;
+    text-align:center;
+    width:fit-content;
+    float:right;
+    cursor:default ;
+    pointer-events:none;
+}
+
 .legend {
     color:#455A64;
     font-weight:bold;
