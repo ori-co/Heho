@@ -51,6 +51,8 @@ body {
     font-weight:bold;
     position:relative;
     bottom:15px;
+    display:inline-block;
+    max-width:100px;
     
 }
 
