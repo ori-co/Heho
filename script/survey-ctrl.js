@@ -34,6 +34,11 @@ app.controller('myCtrl', function($scope,$timeout) {
     }
 
     $scope.selection = function (id) {
+        if (id == $scope.sample.length-1){
+            $scope.button.innerHTML='Valider';
+        } else {
+            $scope.button.innerHTML='Suivant';
+        }
         $scope.current.etat = '';
         $scope.current = $scope.sample[id];
         $scope.current.etat = 'icon_active'; 
@@ -47,9 +52,14 @@ app.controller('myCtrl', function($scope,$timeout) {
     $scope.next = function() {
         var idCurr = $scope.current.id;
         $scope.sample[idCurr] = $scope.current;
-        $scope.selection(idCurr + 1);
-        $scope.button.className="button_disabled";
-        $scope.delay();
+        
+        if (idCurr < $scope.sample.length-1){ 
+            $scope.selection(idCurr + 1);        
+            $scope.button.className="button_disabled";
+            $scope.delay();
+        } else {
+            // validation et deuxième expé
+        }
     }
     
     $scope.note = function($index, $event){
