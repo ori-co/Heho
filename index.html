@@ -22,9 +22,9 @@
 				<p> {{x.description}} </p>
 				<span class="legend">{{x.valMin}}</span>
 				<div class="slider" ng-click="note($index,$event)">
-					<div class="flag" ng-repeat="y in x.notes" style="left:{{y}}px;">
+					<div class="flag" ng-repeat="y in x.notes track by $index" style="left:{{y}}px;">
                     <div class="icon icon_small {{sample[$index].etat}}">
-                        <img src="http://www.gravatar.com/avatar/{{sample[$index].identicon}}?s=30&amp;d=identicon"/>
+                        <img ng-src="http://www.gravatar.com/avatar/{{sample[$index].identicon}}?s=30&amp;d=identicon" alt="avatar miniature"/>
                     </div>
                     <div class="pin {{sample[$index].etat}}"></div>
                     </div>
@@ -35,14 +35,14 @@
 		</div>
         </div>
 		<div id="leftbar">
-			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)"/></div>
+			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img ng-src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)" alt="avatar"/></div>
 		</div>
 
 		<div id="topbar">
 			<div id="player">
-				<div class="icon icon_active"><img src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon"/></div>
-				<audio controls>					
-					<source src="{{current.url}}" type="audio/wav" ng-init="testfunc(this, 'truc')">
+				<div class="icon icon_active"><img ng-src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon" alt="avatar"/></div>
+                <audio controls id="audioplayer">					
+					<source ng-src="{{current.url}}" type="audio/wav">
 				</audio>
 			</div>
 		</div>
