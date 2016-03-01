@@ -30,7 +30,7 @@ app.controller('myCtrl', function($scope,$timeout) {
     $scope.delay=function () {
         $timeout( function(){ 
             $scope.button.className="button"   
-        }, 3000);
+        }, 30000);
     }
 
     $scope.selection = function (id) {
