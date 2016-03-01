@@ -46,9 +46,12 @@ body {
     pointer-events:none;
 }
 
-.legend {
+.caption {
     color:#455A64;
     font-weight:bold;
+    position:relative;
+    bottom:15px;
+    
 }
 
 .slider {

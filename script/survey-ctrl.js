@@ -10,11 +10,15 @@ app.controller('myCtrl', function($scope,$timeout) {
                      {id:6,identicon:'07', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:7,identicon:'08', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                     {id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     {id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     {id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     {id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     {id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
                     
-    $scope.param = [{nom:'caractéristique 1', description:'description correspndant à la caractéristique 1', valMin:'non mot clé 1', valMax:'très mot clé 1', notes: []}, 
-                    {nom:'caractéristique 2', description:'description correspndant à la caractéristique 2', valMin:'non mot clé 2', valMax:'très mot clé 2', notes: []}, 
-                    {nom:'Naturel', description:'exemple', valMin:'pas naturel', valMax:'très naturel', notes: []}];
+    $scope.param = [{nom:'Naturel', description:'sons organiques', valMin:'non Naturel', valMax:'très Naturel', notes: []}, 
+                    {nom:'Végétal', description:'bruits de feuilles, vent, ruisseau, pas humains', valMin:'non Végétal', valMax:'très Végétal', notes: []}, 
+                    {nom:'Bucolique', description:'propice à la balade et à la rêverie', valMin:'non Bucolique', valMax:'très Bucolique', notes: []}];
                     
     $scope.current = $scope.sample[0];
     

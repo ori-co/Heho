@@ -20,7 +20,7 @@
 			<div ng-repeat="x in param">
 				<h3> {{x.nom}} </h3>
 				<p> {{x.description}} </p>
-				<span class="legend">{{x.valMin}}</span>
+				<span class="caption">{{x.valMin}}</span>
 				<div class="slider" ng-click="note($index,$event)">
 					<div class="flag" ng-repeat="y in x.notes track by $index" style="left:{{y}}px;">
                     <div class="icon icon_small {{sample[$index].etat}}">
@@ -29,7 +29,7 @@
                     <div class="pin {{sample[$index].etat}}"></div>
                     </div>
 				</div>
-				<span class="legend">{{x.valMax}}</span>
+				<span class="caption">{{x.valMax}}</span>
 			</div>
 			<div class="button_disabled" ng-click="next()" id="buttonNext"> Suivant </div>
 		</div>
