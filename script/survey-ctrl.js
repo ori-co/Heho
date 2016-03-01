@@ -2,7 +2,7 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope) {
     $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_active'},
-                     {id:1,identicon:'02', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:4,identicon:'05', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -17,11 +17,17 @@ app.controller('myCtrl', function($scope) {
                     {nom:'Naturel', description:'exemple', valMin:'pas naturel', valMax:'très naturel', notes: []}];
                     
     $scope.current = $scope.sample[0];
+    
+    $scope.player = document.getElementById("audioplayer");
 
     $scope.selection = function (id) {
         $scope.current.etat = '';
         $scope.current = $scope.sample[id];
-        $scope.current.etat = 'icon_active';
+        $scope.current.etat = 'icon_active'; 
+        $scope.player.pause();
+        $scope.player.src=$scope.sample[id].url;
+        $scope.player.load();
+        $scope.player.play();
     }
     
     $scope.next = function() {
