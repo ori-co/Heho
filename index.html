@@ -55,7 +55,7 @@
 		</div>
         </div>
 		<div id="leftbar">
-			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img ng-src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection(x.id)" alt="avatar"/></div>
+			<div class="icon {{x.etat}}" ng-repeat="x in sample"><img ng-src="http://www.gravatar.com/avatar/{{x.identicon}}?s=60&amp;d=identicon" ng-click="selection($index)" alt="avatar"/></div>
 		</div>
 
 		<div id="topbar">
