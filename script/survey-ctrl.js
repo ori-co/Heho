@@ -9,13 +9,13 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     
     $scope.player = document.getElementById("audioplayer");
     
-    $scope.button=document.getElementById("buttonNext");   
+    $scope.button=document.getElementById("buttonNext");     
     
     $scope.init = function (exp){
         switch (exp){
             case 1 :
             // Initialisation expérience 1
-                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_active'},
+                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -29,6 +29,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
                      //{id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                
+                $scope.sample = $scope.sample.sort(function() { return 0.5 - Math.random() });                
                     
                 $scope.param = [{nom:'Naturelle', description:'vent, ruisseau ...', notes: []}, 
                                 {nom:'Végétale', description:'bruits de feuilles ...', notes: []},
@@ -36,14 +38,14 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
                                 {nom:'Bucolique', description:'propice à la balade et à la rêverie', notes: []},
                                 {nom:'Agréable', description:'', notes: []}];
                     
-                $scope.current = $scope.sample[0];
-                $scope.selection(0);
+                $scope.current =0;
+                $scope.selection($scope.current);
                 $scope.delay();
                 break;
                 
             case 2:
             // Initialisation expérience 2
-                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_active'},
+                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -62,8 +64,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
                                 {nom:'Entrainant', description:'loops rythmiques, pulsations', notes: []}, 
                                 {nom:'Technologique', description:'sons électroniques et séquences mélodiques synthétiques', notes: []},
                                 {nom:'Agréable', description:'', notes: []}];
-                $scope.current = $scope.sample[0];
-                $scope.selection(0);
+                $scope.current = 0;
+                $scope.selection($scope.current);
                 $scope.delay();
                 break;
                 
@@ -86,9 +88,9 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
         } else {
             $scope.button.innerHTML='Suivant';
         }
-        $scope.current.etat = '';
-        $scope.current = $scope.sample[id];
-        $scope.current.etat = 'icon_active'; 
+        $scope.sample[$scope.current].etat = '';
+        $scope.current = id;
+        $scope.sample[$scope.current].etat = 'icon_active'; 
         $scope.player.pause();
         $scope.player.src=$scope.sample[id].url;
         $scope.player.load();
@@ -97,11 +99,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     }
     
     $scope.next = function() {
-        var idCurr = $scope.current.id;
-        $scope.sample[idCurr] = $scope.current;
-        
-        if (idCurr < $scope.sample.length-1){ 
-            $scope.selection(idCurr + 1);        
+        if ($scope.current < $scope.sample.length-1){ 
+            $scope.selection($scope.current + 1);        
             $scope.button.className="button_disabled";
             $scope.delay();
         } else {
@@ -113,8 +112,7 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     }
     
     $scope.note = function($index, $event){
-        var idCurr = $scope.current.id;
-        $scope.param[$index].notes[idCurr] = $event.offsetX;
+        $scope.param[$index].notes[$scope.current] = $event.offsetX;
         // A diviser par la taille du slider
         
         //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);

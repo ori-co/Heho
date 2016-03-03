@@ -56,9 +56,9 @@
 
 		<div id="topbar">
 			<div id="player">
-				<div class="icon icon_active"><img ng-src="http://www.gravatar.com/avatar/{{current.identicon}}?s=60&amp;d=identicon" alt="avatar"/></div>
+				<div class="icon icon_active"><img ng-src="http://www.gravatar.com/avatar/{{sample[current].identicon}}?s=60&amp;d=identicon" alt="avatar"/></div>
                 <audio controls id="audioplayer">					
-					<source ng-src="{{current.url}}" type="audio/wav">
+					<source ng-src="{{sample[current].url}}" type="audio/wav">
 				</audio>
 			</div>
 		</div>
