@@ -23,17 +23,19 @@ app.controller('myCtrl', function($scope,$timeout) {
                      {id:5,identicon:'06', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:6,identicon:'07', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:7,identicon:'08', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                     //{id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
                     
-                $scope.param = [{nom:'Naturel', description:'sons organiques', valMin:'non Naturel', valMax:'très Naturel', notes: []}, 
-                    {nom:'Végétal', description:'bruits de feuilles, vent, ruisseau, pas humains', valMin:'non Végétal', valMax:'très Végétal', notes: []}, 
-                    {nom:'Bucolique', description:'propice à la balade et à la rêverie', valMin:'non Bucolique', valMax:'très Bucolique', notes: []}];
-            
+                $scope.param = [{nom:'Naturelle', description:'vent, ruisseau ...', notes: []}, 
+                                {nom:'Végétale', description:'bruits de feuilles ...', notes: []},
+                                {nom:'Organique', description:'pas humains, bruits d animaux ...', notes: []},  
+                                {nom:'Bucolique', description:'propice à la balade et à la rêverie', notes: []},
+                                {nom:'Agréable', description:'', notes: []}];
+                    
                 $scope.current = $scope.sample[0];
                 $scope.selection(0);
                 $scope.delay();
@@ -49,16 +51,17 @@ app.controller('myCtrl', function($scope,$timeout) {
                      {id:5,identicon:'06', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:6,identicon:'07', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:7,identicon:'08', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                     //{id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
+                     //{id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
                     
-                $scope.param = [{nom:'Dynamique', description:'sonorités événementielles et ponctuelles', valMin:'non Dynamique', valMax:'très Dynamique', notes: []}, 
-                    {nom:'Entrainant', description:'loops rythmiques, pulsations', valMin:'non Entrainant', valMax:'très Entrainant', notes: []}, 
-                    {nom:'Technologique', description:'sons électroniques et séquences mélodiques synthétiques', valMin:'non Technologique', valMax:'très Technologique', notes: []}];
+                $scope.param = [{nom:'Dynamique', description:'sonorités événementielles et ponctuelles', notes: []}, 
+                                {nom:'Entrainant', description:'loops rythmiques, pulsations', notes: []}, 
+                                {nom:'Technologique', description:'sons électroniques et séquences mélodiques synthétiques', notes: []},
+                                {nom:'Agréable', description:'', notes: []}];
                 $scope.current = $scope.sample[0];
                 $scope.selection(0);
                 $scope.delay();
