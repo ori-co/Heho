@@ -112,10 +112,10 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     }
     
     $scope.note = function($index, $event){
-        $scope.param[$index].notes[$scope.current] = $event.offsetX;
-        // A diviser par la taille du slider
-        
-        //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);
+        var size = $event.srcElement.offsetWidth;
+        $scope.param[$index].notes[$scope.current] = $event.offsetX/size*100;
+        $scope.testAllRes();
+        //alert("note de "+$scope.current+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[$scope.current]);
     }
 
     $scope.saveResults=function() {
