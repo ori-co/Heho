@@ -96,7 +96,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
         $timeout( function(){  
              $scope.attente = true;
              $scope.updateButtonStyle();
-        }, 300);
+        //}, 30000);
+        }, 2000);
     }
     
     $scope.allRes = false;
