@@ -76,21 +76,48 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
         }
     }
     
-    $scope.delay=function () {
-        $timeout( function(){ 
-            $scope.button.className="button"   
-        }, 30000);
-    }
-
-    $scope.selection = function (id) {
-        if (id == $scope.sample.length-1){
+    $scope.updateButtonStyle = function (){
+        if ($scope.current == $scope.sample.length-1){
             $scope.button.innerHTML='Valider';
         } else {
             $scope.button.innerHTML='Suivant';
         }
+        
+        if ($scope.allRes && $scope.delayOK) {
+            $scope.button.className="button"
+        } else {
+            $scope.button.className="button_disabled";
+        }
+    }
+    
+    $scope.delayOK =false;
+    
+    $scope.delay=function () {
+        $timeout( function(){  
+             $scope.attente = true;
+             $scope.updateButtonStyle();
+        }, 300);
+    }
+    
+    $scope.allRes = false;
+    
+    $scope.testAllRes = function() {
+        $scope.allRes=true;
+        for (i = 0; i < $scope.param.length; i++) { 
+            if (!$scope.param[i].notes[$scope.current]){
+                $scope.allRes = false;
+            }
+        }
+        $scope.updateButtonStyle();
+    }
+
+    $scope.selection = function (id) {
         $scope.sample[$scope.current].etat = '';
         $scope.current = id;
         $scope.sample[$scope.current].etat = 'icon_active'; 
+        
+        $scope.testAllRes();
+        
         $scope.player.pause();
         $scope.player.src=$scope.sample[id].url;
         $scope.player.load();
@@ -100,8 +127,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     
     $scope.next = function() {
         if ($scope.current < $scope.sample.length-1){ 
-            $scope.selection($scope.current + 1);        
-            $scope.button.className="button_disabled";
+            $scope.selection($scope.current + 1);        ;
+            $scope.attente = false;
             $scope.delay();
         } else {
             // Sauvegarde et passage à la deuxième expérience
