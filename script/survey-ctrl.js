@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller('myCtrl', function($scope,$timeout) {    
+app.controller('myCtrl', function($scope,$timeout,$http) {    
     $scope.sample = [];
                     
     $scope.param = [];
@@ -69,6 +69,7 @@ app.controller('myCtrl', function($scope,$timeout) {
                 
             default:
             // fin de l'expérience
+            $scope.button.className="button_disabled";
             alert("Expérience terminée. Merci !");
         }
     }
@@ -104,7 +105,8 @@ app.controller('myCtrl', function($scope,$timeout) {
             $scope.button.className="button_disabled";
             $scope.delay();
         } else {
-            // validation et deuxième expé
+            // Sauvegarde et passage à la deuxième expérience
+            $scope.saveResults();
             $scope.exp ++;
             $scope.init($scope.exp);
         }
@@ -118,6 +120,23 @@ app.controller('myCtrl', function($scope,$timeout) {
         //alert("note de "+idCurr+" sur le critère "+$scope.param[$index].nom+" est de : "+$scope.param[$index].notes[idCurr]);
     }
 
+    $scope.saveResults=function() {
+        var ids =[];
+        for (i = 0; i < $scope.sample.length; i++) { 
+            ids.push($scope.sample[i].id);
+        }
+        var temp=[];
+        for (i = 0; i < $scope.param.length; i++) { 
+            temp.push({param:$scope.param[i].nom, notes:$scope.param[i].notes})
+        }
+        var res = {
+            exp:$scope.exp,
+            sampleID:ids,
+            notes:temp
+            }
+        $http.post("save_results.php",res);
+    }
+    
     $scope.testfunc = function(scope, a) {
         alert(a);
     }
