@@ -12,12 +12,28 @@
     <body>
 	
 	<div ng-app="myApp" ng-controller="myCtrl" ng-init="exp=1;init(exp);">
+        <div id="helpPanel" ng-show="help">
+            <div class="main">
+                <p> <b> Instructions : </b>
+                <br/> Ecoutez les scènes sonores une par une pour noter selon tous les critères. 
+                <br/> La lecture des scènes se lance automatiquement lorsque vous cliquer sur "Suivant"
+                <br/> Vous devez écouter chaque scène sonore en entier (1min).
+                <br/> Vous devez noter les scènes selon tous les critères avant de passer à la scène suivante. 
+                <br/> Vous pouvez revenir en arrière pour modifier les notes des scènes précédentes. 
+                <br/> Notez les scènes les unes par rapport aux autres. 
+                <br/> Une fois la dernière scène écoutée, vous pouvez valider vos notes définitivement. 
+                <br/> Deux jeux de scènes sonores évaluées sur des critères différents vont se succéder.
+                </p>
+                <span ng-click="help=false" class="button help"> OK </span>
+            </div>
+        </div>
         <div id="instructionbar">
             <div class="instruction">
             <b>Question</b> : A quel point la scène sonore correspond aux adjectifs ci-dessous ?  
             <span ng-click="help=true" class="button help"> ? </span>
             </div>
-            <div id="main">
+            
+            <div class="main">
 			<div ng-repeat="x in param">
 				<p><b> {{x.nom}} : </b> {{x.description}} </p>
 				<span class="caption">Pas du tout</span>

@@ -4,7 +4,7 @@ body {
     font-family:roboto;
 }
 
-#main {
+.main {
     border-width: 1px;
     border-style: solid;
     border-color: #BDBAB5;
@@ -203,5 +203,27 @@ body {
     height: auto;
     background: #CDDC39;
     box-shadow: 0px -3px 8px 5px  rgba(0,0,0,0.4); 
+    text-align:center;
 }
 
+.help {
+    float:none;
+    display:inline-block;
+    border-radius:20px;
+    padding: 10px 15px 10px 15px;
+    font-weight:900;
+    margin-left:30px;
+    
+}
+
+#helpPanel {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(0, 0, 0, 0.6);
+    z-index:1;
+    padding:100px 150px 100px 150px;
+    text-align:center;
+}
