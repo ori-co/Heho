@@ -16,7 +16,7 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
             case 1 :
             // Initialisation expérience 1
                 $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
+                     {id:1,identicon:'02', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:4,identicon:'05', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -46,7 +46,7 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
             case 2:
             // Initialisation expérience 2
                 $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:1,identicon:'02', url:'samples/sample2.mp3', etat:'icon_disabled'},
+                     {id:1,identicon:'02', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
                      {id:4,identicon:'05', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -94,10 +94,10 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     
     $scope.delay=function () {
         $timeout( function(){  
-             $scope.attente = true;
+             $scope.delayOK = true;
              $scope.updateButtonStyle();
+        }, 7000);
         //}, 30000);
-        }, 2000);
     }
     
     $scope.allRes = false;
@@ -129,7 +129,7 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
     $scope.next = function() {
         if ($scope.current < $scope.sample.length-1){ 
             $scope.selection($scope.current + 1);        ;
-            $scope.attente = false;
+            $scope.delayOK = false;
             $scope.delay();
         } else {
             // Sauvegarde et passage à la deuxième expérience
