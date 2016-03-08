@@ -15,15 +15,15 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
         switch (exp){
             case 1 :
             // Initialisation expérience 1
-                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:1,identicon:'02', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:4,identicon:'05', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:5,identicon:'06', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:6,identicon:'07', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:7,identicon:'08', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                $scope.sample = [{id:0,identicon:'01', url:'samples/Crea Compositeur Brief 1_1.wav', etat:'icon_disabled'},
+                     {id:1,identicon:'02', url:'samples/Echantillon Max Msp_Brief Vegetal.wav', etat:'icon_disabled'},
+                     {id:2,identicon:'03', url:'samples/brief_vegetal_prop_1_classLvl_1_rep_1.wav', etat:'icon_disabled'},
+                     {id:3,identicon:'04', url:'samples/brief_vegetal_prop_1_classLvl_1_rep_2.wav', etat:'icon_disabled'},
+                     {id:4,identicon:'05', url:'samples/brief_vegetal_prop_1_classLvl_1_rep_3.wav', etat:'icon_disabled'},
+                     {id:5,identicon:'06', url:'samples/brief_vegetal_prop_1_classLvl_2_rep_1.wav', etat:'icon_disabled'},
+                     {id:6,identicon:'07', url:'samples/brief_vegetal_prop_1_classLvl_2_rep_2.wav', etat:'icon_disabled'},
+                     {id:7,identicon:'08', url:'samples/brief_vegetal_prop_1_classLvl_2_rep_3.wav', etat:'icon_disabled'}];
+                     //{id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
@@ -45,21 +45,23 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
                 
             case 2:
             // Initialisation expérience 2
-                $scope.sample = [{id:0,identicon:'01', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:1,identicon:'02', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:2,identicon:'03', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:3,identicon:'04', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:4,identicon:'05', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:5,identicon:'06', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:6,identicon:'07', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:7,identicon:'08', url:'samples/sample1.wav', etat:'icon_disabled'},
-                     {id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'}];
+                $scope.sample = [{id:0,identicon:'01', url:'samples/Crea Compositeur Brief 2_2.wav', etat:'icon_disabled'},
+                     {id:1,identicon:'02', url:'samples/Echantillon Max Msp_Brief Technologique.wav', etat:'icon_disabled'},
+                     {id:2,identicon:'03', url:'samples/brief_technologique_prop_2_classLvl_1_rep_1.wav', etat:'icon_disabled'},
+                     {id:3,identicon:'04', url:'samples/brief_technologique_prop_2_classLvl_1_rep_2.wav', etat:'icon_disabled'},
+                     {id:4,identicon:'05', url:'samples/brief_technologique_prop_2_classLvl_1_rep_3.wav', etat:'icon_disabled'},
+                     {id:5,identicon:'06', url:'samples/brief_technologique_prop_2_classLvl_2_rep_1.wav', etat:'icon_disabled'},
+                     {id:6,identicon:'07', url:'samples/brief_technologique_prop_2_classLvl_2_rep_2.wav', etat:'icon_disabled'},
+                     {id:7,identicon:'08', url:'samples/brief_technologique_prop_2_classLvl_2_rep_3.wav', etat:'icon_disabled'}];
+                     //{id:8,identicon:'09', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:9,identicon:'10', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:10,identicon:'11', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:11,identicon:'12', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:12,identicon:'13', url:'samples/sample1.wav', etat:'icon_disabled'},
                      //{id:13,identicon:'14', url:'samples/sample1.wav', etat:'icon_disabled'}];
-                    
+                
+                $scope.sample = $scope.sample.sort(function() { return 0.5 - Math.random() });
+                
                 $scope.param = [{nom:'Dynamique', description:'sonorités événementielles et ponctuelles', notes: []}, 
                                 {nom:'Entrainant', description:'loops rythmiques, pulsations', notes: []}, 
                                 {nom:'Technologique', description:'sons électroniques et séquences mélodiques synthétiques', notes: []},
@@ -96,7 +98,8 @@ app.controller('myCtrl', function($scope,$timeout,$http) {
         $timeout( function(){  
              $scope.delayOK = true;
              $scope.updateButtonStyle();
-        }, 7000);
+        }, 60000);
+        // une minute par echantillon
         //}, 30000);
     }
     
