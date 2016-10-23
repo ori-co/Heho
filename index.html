@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Expérience Hého</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style/survey.css" rel="stylesheet">
@@ -10,24 +10,41 @@
 		<script src="script/survey-ctrl.js"></script>
     </head>
     <body>
-	
-	<div ng-app="myApp" ng-controller="myCtrl" ng-init="exp=1;init(exp);">
-        <div id="helpPanel" ng-show="help">
+	<div ng-app="myApp" ng-controller="myCtrl">
+        <div id="endExp" class="panel" ng-show="end">
             <div class="main">
-                <p> <b> Instructions : </b>
-                <br/> Ecoutez les scènes sonores une par une pour noter selon tous les critères. 
-                <br/> La lecture des scènes se lance automatiquement lorsque vous cliquer sur "Suivant"
-                <br/> Vous devez écouter chaque scène sonore <b>en entier (60secondes)</b> avant de pouvoir cliquer à nouveau sur "Suivant".
-                <br/> Vous devez noter les scènes selon <b>tous les critères</b> avant de passer à la scène suivante. 
-                <br/> Le curseur correspondant à la scène sonore apprait sur l'échelle lorsque vous cliquez dessus. 
-                <br/> Vous pouvez revenir en arrière pour modifier les notes des scènes précédentes. 
-                <br/> Notez les scènes les unes par rapport aux autres. 
-                <br/> Une fois la dernière scène écoutée, vous pouvez valider vos notes définitivement. 
-                <br/> Deux jeux de scènes sonores évaluées sur des critères différents vont se succéder.
-                </p>
-                <span ng-click="help=false" class="button help"> OK </span>
+            <p>Expérience terminée. Merci !</p>
             </div>
         </div>
+        <div id="initForm" class="panel" ng-hide="ok">
+            <div class="main">
+            <p><b> Informations personnelles :</b></p>
+            <p>Prénom : <input type="text" ng-model="firstname"></p>
+            <p>Nom : <input type="text" ng-model="name"></p>
+            <p>Age : <input type="number" ng-model="age"></p>
+            <p>Sexe :   <input type="radio" ng-model="gender" value="male" checked> Masculin
+                        <input type="radio" ng-model="gender" value="female"> Feminin</p>
+            <span ng-click="help=true;ok=true;" class="button help" ng-hide="!firstname"> OK </span>
+            </div>
+        </div>
+        <div id="helpPanel" class="panel" ng-show="help">
+            <div class="main">
+                <p> <b> Instructions : </b></p>
+                <p> Mettez-vous dans des conditions d'écoutes idéales
+                <br/> Ecoutez les scènes sonores une par une pour les noter selon tous les critères.
+                <br/> Notez les scènes les unes par rapport aux autres. </p> 
+                <p> La lecture des scènes se lance automatiquement lorsque vous cliquez sur "Suivant"
+                <br/> Vous devez écouter chaque scène sonore <b>en entier (60secondes)</b> avant de pouvoir cliquer à nouveau sur "Suivant".
+                <br/> Vous devez noter les scènes selon <b>tous les critères</b> avant de passer à la scène suivante. </p>
+                <p> Le curseur correspondant à la scène sonore apprait sur l'échelle lorsque vous cliquez dessus.
+                <br/> Vous pouvez revenir en arrière pour modifier les notes des scènes précédentes.
+                <br/> Une fois la dernière scène écoutée, vous pouvez valider vos notes définitivement. </p>
+                <p> Deux jeux de scènes sonores évaluées sur des critères différents vont se succéder.</p>
+                <span ng-click="help=false" class="button help" ng-hide="!count"> OK </span>
+                <span ng-click="help=false;count=0;init(exp);" class="button help" ng-show="!count"> Commencer </span>
+            </div>
+        </div>
+        
         <div id="instructionbar">
             <div class="instruction">
             <b>Question</b> : Dans quelle mesure les adjectifs ci-dessous correspondent-ils à la scène sonore ? 
